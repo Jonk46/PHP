@@ -14,19 +14,8 @@ foreach ($_FILES["userfile"]["error"] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         if (in_array($_FILES["userfile"]["type"][$key], $allowedMimes)) {
             $tmp_name = $_FILES["userfile"]["tmp_name"][$key];
-            $name = basename(sha1_file($tmp_name).'.jpeg');
+            $name = basename(sha1_file($tmp_name) . '.jpeg');
             move_uploaded_file($tmp_name, "$uploads_dir/$name");
-
-            // відокремлюю розширення від імені
-            $name = explode('.', '$tmp_name');
-            print_r($name);
-
-            // отримую окремо розширення
-            echo end($tmp_name);
-
-            // конкотиную розширення до кешу
-            echo "{$name} '+' {$tmp_name}";
-
         }
     }
 }
