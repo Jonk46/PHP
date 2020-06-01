@@ -1,25 +1,22 @@
 <?php
-
+session_start();
 $products = array(
     1 => [
-        'article' => "df7g-54f8df7-f7d6f",
-        'name' => 'American Beauty Swirl',
-        'manufacturer' => 'Roper',
-        'price' => 89.96,
-
+        'img' => "images/apple.png",
+        'name' => 'Apple',
+        'manufacture' => 'China',
+        'price' => 1399.99,
     ],
     2 => [
-        'article' => "4764-54f8df7-f7d6f",
-        'name' => 'Workhog Pull-On WP',
-        'manufacturer' => 'Ariat',
-        'price' => 169.95,
-
+        'img' => "images/notebook.png",
+        'name' => 'Laptop',
+        'manufacture' => 'Korea',
+        'price' => 599.99
     ],
     3 => [
-        'article' => "98fd-54f8df7-76fs8d",
-        'name' => 'Excavator Superlite Waterproof NT',
-        'manufacturer' => 'Caterpillar',
-        'price' => 154.85,
-
-    ],
+        'img' => "images/watch.png",
+        'name' => 'Apple watch',
+        'manufacture' => 'California',
+        'price' => 199.99
+    ]
 );
