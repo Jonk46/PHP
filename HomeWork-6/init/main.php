@@ -13,19 +13,12 @@ session_start();
 </head>
 
 <body>
-
     <div class="container text-center pt-5">
-        <p>
-            <h1>Don't have an account ?</h1>
-            <a class="btn btn-primary" href="<?= $_SERVER['PHP_SELF'] ?>?action=register">Registration</a>
-        </p>
-        <p>
-            <h1>If you're our user, please -></h1>
-            <a class="btn btn-success" href="<?= $_SERVER['PHP_SELF'] ?>?action=login">Sign in</a>
-        </p>
-
+        <h1>Don't have an account ?</h1>
+        <a class="btn btn-primary" href="<?= $_SERVER['PHP_SELF'] ?>?action=register">Registration</a>
+        <h1>If you're our user, please -></h1>
+        <a class="btn btn-success" href="<?= $_SERVER['PHP_SELF'] ?>?action=login">Sign in</a>
     </div>
-
 </body>
 
 </html>
