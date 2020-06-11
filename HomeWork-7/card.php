@@ -15,9 +15,6 @@ if($_GET['action'] === 'add') {
 }
 
 if($_GET['action'] === 'list') {
-//    echo "<pre>";
-//    var_dump($_SESSION);
-//    exit;
     if (count($_SESSION['cart']['products']) > 0) {
         $cartitems = [];
         foreach ($_SESSION['cart']['products'] as $product_id => $product_value) {
@@ -32,10 +29,6 @@ if($_GET['action'] === 'list') {
 $_SESSION['list'] = $cartitems;
 
 if (isset($_POST['btn'])) {
-//    echo "<pre>";
-//    print_r($_SESSION['cart']['products']);
-//    print_r($_POST);
-
     foreach ($_POST['qty']['qty'] as $key => $value) {
         if($_POST['qty']['qty'][$key] < 0) {
             $_POST['qty']['qty'][$key] = 1;
@@ -45,8 +38,6 @@ if (isset($_POST['btn'])) {
         $_POST['qty']['id'],
         $_POST['qty']['qty']
     );
-//    print_r($new_values);
-//    exit;
     foreach ($new_values as $key => $value) {
         $_SESSION['cart']['products'][$key] = $value;
     }
