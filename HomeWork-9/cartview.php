@@ -7,9 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Pricing example · Bootstrap</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Cartview</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/pricing/">
 </head>
 <body>
@@ -20,12 +19,12 @@
         <a class="p-2 text-dark" href="#">Men</a>
         <a class="p-2 text-dark" href="#">Kids</a>
     </nav>
-    <a class="btn btn-outline-primary" href="card.php?action=list">Cart</a>
+    <a class="btn btn-outline-primary" href="internal/cart.php?action=list">Cart</a>
 </div>
 <div class="container">
     <?php
     if(count($_SESSION['list']) > 0): ?>
-        <form action="card.php" method="post">
+        <form action="cart.php" method="post">
             <table class="table table-sm">
                 <thead>
                 <tr>
@@ -42,17 +41,16 @@
                 <?php foreach($_SESSION['list'] as $item): ?>
                     <tr>
                         <th scope="row"><?= $item->id ?></th>
-                        <td><img width="50px" src="<?= $item->info->img ?>"></td>
+                        <td><img width="50px" src="<?= '../'.$item->info->img ?>"></td>
                         <td><?= $item->info->name ?></td>
                         <td><?= $item->info->price ?></td>
                         <td>
                             <input type="hidden" name="qty[id][]" value="<?= $item->id ?>">
                             <input type="number" name="qty[qty][]" value="<?= $item->product_value ?>" step="1">
-                            <span><?php if(isset($_POST["qty[qty][]"])) echo $_SESSION['message'] ?></span>
                         </td>
                         <td><?= $item->product_value*$item->info->price ?></td>
                         <td>
-                            <a href="card.php?action=remove&product_idrem=<?=$item->id?>">Remove</a>
+                            <a href="cart.php?action=remove&product_idrem=<?=$item->id?>">Remove</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -75,15 +73,14 @@
                 </tbody>
             </table>
 
-            <a href="index.php" class="btn btn-primary">Continue Shoping</a>
-            <a href="card.php?action=remove_all" class="btn btn-danger">Clean up</a>
+            <a href="../index.php" class="btn btn-primary">Continue Shoping</a>
+            <a href="cart.php?action=remove_all" class="btn btn-danger">Clean up</a>
             <input type="submit" class="btn btn-success" name="btn" value="Save Changes">
-            <a href="shipInfo.php" class="btn btn-secondary">Checkout</a>
+            <a href="../shipInfo.php" class="btn btn-secondary">Checkout</a>
         </form>
     <?php else: ?>
         <div class="alert alert-info" role="alert">
             Your shoping cart is empty
         </div>
     <?php endif ?>
-
 </div>
