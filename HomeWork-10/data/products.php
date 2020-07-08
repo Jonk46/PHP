@@ -1,5 +1,4 @@
 <?php
-session_start();
 $products = array(
     1 => [
         'img' => "images/apple.png",

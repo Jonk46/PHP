@@ -1,16 +1,7 @@
 <?php
 function productAdd($cart, $id) {
-    $cart = cartInit($cart);
+//    $cart = cartInit($cart);
     $cart = productGetState($id, $cart);
-    return $cart;
-}
-
-function cartInit($cart) {
-    if (!isset($cart)) {
-        $cart = [
-            'products' => [],
-        ];
-    }
     return $cart;
 }
 
@@ -31,8 +22,8 @@ function cartGetList($cart, $products) {
                 'info' => (object)$products[$product_id]
             ];
         }
+        return $cartitems;
     }
-    return $cartitems;
 }
 
 function saveChangesAndRecount($postId, $postQty, $cart) {
@@ -63,6 +54,6 @@ function CartCleanUp($cart) {
     return $cart;
 }
 
-function redirect($pathHandler, $pathAction) {
-    header(sprintf('Location: %s?action=%s', $pathHandler, $pathAction));
+function filePut($string, $path) {
+    file_put_contents($path, $string,FILE_APPEND);
 }
